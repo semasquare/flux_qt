@@ -13,16 +13,16 @@ public:
     FtpService();
     ~FtpService();
 
-    void onUploadFtp(const QString& filename);
+    void onUploadFtp(const QString &filename);
 
 signals:
-    void uploadFtp(const QString& filename);
+    void uploadFtp(const QString &filename);
 
 private:
-    FtpService(const FtpService&) = delete;
-    FtpService(FtpService&&) = delete;
-    FtpService& operator=(const FtpService&) = delete;
-    FtpService& operator=(FtpService&&) = delete;
+    FtpService(const FtpService &) = delete;
+    FtpService(FtpService &&) = delete;
+    FtpService &operator=(const FtpService &) = delete;
+    FtpService &operator=(FtpService &&) = delete;
 
     class FtpServiceImpl;
     QScopedPointer<FtpServiceImpl> impl_;

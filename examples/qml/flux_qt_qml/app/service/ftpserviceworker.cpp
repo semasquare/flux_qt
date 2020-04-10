@@ -18,7 +18,8 @@ void FtpServiceWorker::onUploadFtp(const QString &filename)
     QThread::msleep(2000);
 
     int percentDone = 0;
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 10; ++i)
+    {
         percentDone += 10;
         flux_qt::Dispatcher::instance().dispatch(new flux_qt::Action(ActionType::UploadFtpProcess, percentDone));
 

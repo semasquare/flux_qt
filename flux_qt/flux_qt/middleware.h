@@ -12,16 +12,16 @@ class Middleware
 public:
     virtual ~Middleware() = default;
 
-    virtual QSharedPointer<Action> process(const QSharedPointer<Action>& action) = 0;
+    virtual QSharedPointer<Action> process(const QSharedPointer<Action> &action) = 0;
 
 protected:
     Middleware() = default;
-    Middleware(const Middleware&) = default;
-    Middleware(Middleware&&) = default;
-    Middleware& operator=(const Middleware&) = default;
-    Middleware& operator=(Middleware&&) = default;
+    Middleware(const Middleware &) = default;
+    Middleware(Middleware &&) = default;
+    Middleware &operator=(const Middleware &) = default;
+    Middleware &operator=(Middleware &&) = default;
 };
 
-}
+} // namespace flux_qt
 
 #endif

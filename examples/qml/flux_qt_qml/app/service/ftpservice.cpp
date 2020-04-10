@@ -11,10 +11,10 @@ class FtpService::FtpServiceImpl final
 {
 public:
     FtpServiceImpl() = default;
-    FtpServiceImpl(const FtpServiceImpl&) = delete;
-    FtpServiceImpl(FtpServiceImpl&&) = delete;
-    FtpServiceImpl& operator=(const FtpServiceImpl&) = delete;
-    FtpServiceImpl& operator=(FtpServiceImpl&&) = delete;
+    FtpServiceImpl(const FtpServiceImpl &) = delete;
+    FtpServiceImpl(FtpServiceImpl &&) = delete;
+    FtpServiceImpl &operator=(const FtpServiceImpl &) = delete;
+    FtpServiceImpl &operator=(FtpServiceImpl &&) = delete;
     ~FtpServiceImpl() = default;
 
     QSharedPointer<FtpServiceWorkerThread> thread_;
