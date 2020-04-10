@@ -10,10 +10,10 @@ public:
     virtual ~FtpServiceWorkerThread() = default;
 
 private:
-    FtpServiceWorkerThread(const FtpServiceWorkerThread&) = delete;
-    FtpServiceWorkerThread(FtpServiceWorkerThread&&) = delete;
-    FtpServiceWorkerThread& operator=(const FtpServiceWorkerThread&) = delete;
-    FtpServiceWorkerThread& operator=(FtpServiceWorkerThread&&) = delete;
+    FtpServiceWorkerThread(const FtpServiceWorkerThread &) = delete;
+    FtpServiceWorkerThread(FtpServiceWorkerThread &&) = delete;
+    FtpServiceWorkerThread &operator=(const FtpServiceWorkerThread &) = delete;
+    FtpServiceWorkerThread &operator=(FtpServiceWorkerThread &&) = delete;
 
     void run() override;
 };
@@ -27,13 +27,13 @@ public:
     ~FtpServiceWorker() = default;
 
 public slots:
-    void onUploadFtp(const QString& filename);
+    void onUploadFtp(const QString &filename);
 
 private:
-    FtpServiceWorker(const FtpServiceWorker&) = delete;
-    FtpServiceWorker(FtpServiceWorker&&) = delete;
-    FtpServiceWorker& operator=(const FtpServiceWorker&) = delete;
-    FtpServiceWorker& operator=(FtpServiceWorker&&) = delete;
+    FtpServiceWorker(const FtpServiceWorker &) = delete;
+    FtpServiceWorker(FtpServiceWorker &&) = delete;
+    FtpServiceWorker &operator=(const FtpServiceWorker &) = delete;
+    FtpServiceWorker &operator=(FtpServiceWorker &&) = delete;
 };
 
 #endif

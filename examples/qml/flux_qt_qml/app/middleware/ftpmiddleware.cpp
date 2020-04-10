@@ -12,10 +12,10 @@ public:
     {
     }
 
-    FtpMiddlewareImpl(const FtpMiddlewareImpl&) = delete;
-    FtpMiddlewareImpl(FtpMiddlewareImpl&&) = delete;
-    FtpMiddlewareImpl& operator=(const FtpMiddlewareImpl&) = delete;
-    FtpMiddlewareImpl& operator=(FtpMiddlewareImpl&&) = delete;
+    FtpMiddlewareImpl(const FtpMiddlewareImpl &) = delete;
+    FtpMiddlewareImpl(FtpMiddlewareImpl &&) = delete;
+    FtpMiddlewareImpl &operator=(const FtpMiddlewareImpl &) = delete;
+    FtpMiddlewareImpl &operator=(FtpMiddlewareImpl &&) = delete;
     ~FtpMiddlewareImpl() = default;
 
     QScopedPointer<FtpService> service_;
@@ -30,9 +30,10 @@ FtpMiddleware::~FtpMiddleware()
 {
 }
 
-QSharedPointer<flux_qt::Action> FtpMiddleware::process(const QSharedPointer<flux_qt::Action>& action)
+QSharedPointer<flux_qt::Action> FtpMiddleware::process(const QSharedPointer<flux_qt::Action> &action)
 {
-    switch (action->getType<ActionType>()) {
+    switch (action->getType<ActionType>())
+    {
 
     case ActionType::UploadFtp:
         impl_->service_->onUploadFtp(action->getPayload<QString>());

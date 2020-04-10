@@ -9,10 +9,10 @@ class MainStore::MainStoreImpl final
 {
 public:
     MainStoreImpl() = default;
-    MainStoreImpl(const MainStoreImpl&) = delete;
-    MainStoreImpl(MainStoreImpl&&) = delete;
-    MainStoreImpl& operator=(const MainStoreImpl&) = delete;
-    MainStoreImpl& operator=(MainStoreImpl&&) = delete;
+    MainStoreImpl(const MainStoreImpl &) = delete;
+    MainStoreImpl(MainStoreImpl &&) = delete;
+    MainStoreImpl &operator=(const MainStoreImpl &) = delete;
+    MainStoreImpl &operator=(MainStoreImpl &&) = delete;
     ~MainStoreImpl() = default;
 
     bool showFileDialog_;
@@ -45,9 +45,10 @@ QString MainStore::getUploadStatus() const
     return impl_->uploadStatus_;
 }
 
-void MainStore::process(const QSharedPointer<flux_qt::Action>& action)
+void MainStore::process(const QSharedPointer<flux_qt::Action> &action)
 {
-    switch (action->getType<ActionType>()) {
+    switch (action->getType<ActionType>())
+    {
 
     case ActionType::ShowFileDialog:
         processShowFileDialogAction(action);

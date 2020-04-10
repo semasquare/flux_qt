@@ -17,12 +17,13 @@ class MainStore final : public QObject, public flux_qt::Store
     Q_PROPERTY(QString uploadStatus READ getUploadStatus NOTIFY uploadStatusChanged)
 
 public:
-    static MainStore& instance() {
+    static MainStore &instance()
+    {
         static MainStore self;
         return self;
     }
 
-    void process(const QSharedPointer<flux_qt::Action>& action) Q_DECL_OVERRIDE;
+    void process(const QSharedPointer<flux_qt::Action> &action) Q_DECL_OVERRIDE;
 
     bool getShowFileDialog() const;
     QString getSelectedFilename() const;
@@ -35,17 +36,17 @@ signals:
 
 private:
     MainStore();
-    MainStore(const MainStore&) = delete;
-    MainStore(MainStore&&) = delete;
-    MainStore& operator=(const MainStore&) = delete;
-    MainStore& operator=(MainStore&&) = delete;
+    MainStore(const MainStore &) = delete;
+    MainStore(MainStore &&) = delete;
+    MainStore &operator=(const MainStore &) = delete;
+    MainStore &operator=(MainStore &&) = delete;
     ~MainStore();
 
-    void processShowFileDialogAction(const QSharedPointer<flux_qt::Action>& action);
-    void processSelectFileAction(const QSharedPointer<flux_qt::Action>& action);
-    void processUploadFtpStartedAction(const QSharedPointer<flux_qt::Action>& action);
-    void processUploadFtpProcessAction(const QSharedPointer<flux_qt::Action>& action);
-    void processUploadFtpFinishedAction(const QSharedPointer<flux_qt::Action>& action);
+    void processShowFileDialogAction(const QSharedPointer<flux_qt::Action> &action);
+    void processSelectFileAction(const QSharedPointer<flux_qt::Action> &action);
+    void processUploadFtpStartedAction(const QSharedPointer<flux_qt::Action> &action);
+    void processUploadFtpProcessAction(const QSharedPointer<flux_qt::Action> &action);
+    void processUploadFtpFinishedAction(const QSharedPointer<flux_qt::Action> &action);
 
     class MainStoreImpl;
     QScopedPointer<MainStoreImpl> impl_;

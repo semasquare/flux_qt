@@ -13,13 +13,13 @@ public:
     FtpMiddleware();
     ~FtpMiddleware();
 
-    QSharedPointer<flux_qt::Action> process(const QSharedPointer<flux_qt::Action>& action) override;
+    QSharedPointer<flux_qt::Action> process(const QSharedPointer<flux_qt::Action> &action) override;
 
 private:
-    FtpMiddleware(const FtpMiddleware&) = delete;
-    FtpMiddleware(FtpMiddleware&&) = delete;
-    FtpMiddleware& operator=(const FtpMiddleware&) = delete;
-    FtpMiddleware& operator=(FtpMiddleware&&) = delete;
+    FtpMiddleware(const FtpMiddleware &) = delete;
+    FtpMiddleware(FtpMiddleware &&) = delete;
+    FtpMiddleware &operator=(const FtpMiddleware &) = delete;
+    FtpMiddleware &operator=(FtpMiddleware &&) = delete;
 
     class FtpMiddlewareImpl;
     QScopedPointer<FtpMiddlewareImpl> impl_;

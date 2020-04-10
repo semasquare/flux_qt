@@ -9,28 +9,28 @@
 namespace flux_qt
 {
 
-template<typename E>
+template <typename E>
 using is_scoped_enum = std::integral_constant<bool, std::is_enum<E>::value && !std::is_convertible<E, int>::value>;
 
 class Action final
 {
 public:
     template <class ScopedEnum = typename std::enable_if<is_scoped_enum<ScopedEnum>::value>::type>
-    Action(ScopedEnum type, QVariant& payload, bool error = false)
+    Action(ScopedEnum type, QVariant &payload, bool error = false)
         : type_(static_cast<int>(type)), payload_(payload), error_(error)
     {
     }
 
     template <class ScopedEnum = typename std::enable_if<is_scoped_enum<ScopedEnum>::value>::type>
-    Action(ScopedEnum type, QVariant&& payload = QVariant(), bool error = false)
+    Action(ScopedEnum type, QVariant &&payload = QVariant(), bool error = false)
         : type_(static_cast<int>(type)), payload_(std::move(payload)), error_(error)
     {
     }
 
-    Action(const Action&) = default;
-    Action(Action&&) = default;
-    Action& operator=(const Action&) = default;
-    Action& operator=(Action&&) = default;
+    Action(const Action &) = default;
+    Action(Action &&) = default;
+    Action &operator=(const Action &) = default;
+    Action &operator=(Action &&) = default;
     ~Action() = default;
 
     template <class ScopedEnum = typename std::enable_if<is_scoped_enum<ScopedEnum>::value>::type>
@@ -39,7 +39,7 @@ public:
         return static_cast<ScopedEnum>(type_);
     }
 
-    template<class T>
+    template <class T>
     T getPayload() const
     {
         return qvariant_cast<T>(payload_);
@@ -56,6 +56,6 @@ private:
     QVariant payload_;
 };
 
-}
+} // namespace flux_qt
 
 #endif

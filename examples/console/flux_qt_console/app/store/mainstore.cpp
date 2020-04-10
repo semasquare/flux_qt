@@ -5,9 +5,10 @@
 #include <action/actiontypes.h>
 #include <store/mainstore.h>
 
-void MainStore::process(const QSharedPointer<flux_qt::Action>& action)
+void MainStore::process(const QSharedPointer<flux_qt::Action> &action)
 {
-    switch (action->getType<ActionType>()) {
+    switch (action->getType<ActionType>())
+    {
 
     case ActionType::UploadFtpStarted:
         qDebug().noquote() << "Start uploading" << action->getPayload<QString>();

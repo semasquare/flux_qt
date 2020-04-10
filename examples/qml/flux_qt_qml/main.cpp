@@ -16,26 +16,26 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     qmlRegisterSingletonType<ActionProvider>("Flux", 1, 0, "ActionProvider",
-                                             [](QQmlEngine* engine, QJSEngine* scriptEngine) -> QObject* {
-        Q_UNUSED(engine)
-        Q_UNUSED(scriptEngine)
+                                             [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
+                                                 Q_UNUSED(engine)
+                                                 Q_UNUSED(scriptEngine)
 
-        QQmlEngine::setObjectOwnership(&ActionProvider::instance(), QQmlEngine::CppOwnership);
-        return &ActionProvider::instance();
-    });
+                                                 QQmlEngine::setObjectOwnership(&ActionProvider::instance(), QQmlEngine::CppOwnership);
+                                                 return &ActionProvider::instance();
+                                             });
 
     qmlRegisterSingletonType<MainStore>("Flux", 1, 0, "MainStore",
-                                        [](QQmlEngine* engine, QJSEngine* scriptEngine) -> QObject* {
-        Q_UNUSED(engine)
-        Q_UNUSED(scriptEngine)
+                                        [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
+                                            Q_UNUSED(engine)
+                                            Q_UNUSED(scriptEngine)
 
-        QQmlEngine::setObjectOwnership(&MainStore::instance(), QQmlEngine::CppOwnership);
-        return &MainStore::instance();
-    });
+                                            QQmlEngine::setObjectOwnership(&MainStore::instance(), QQmlEngine::CppOwnership);
+                                            return &MainStore::instance();
+                                        });
 
     Dispatcher::instance().registerMiddleware(new FtpMiddleware);
     Dispatcher::instance().registerStore(QSharedPointer<flux_qt::Store>(&MainStore::instance(),
-                                                                        [](flux_qt::Store*) {}));
+                                                                        [](flux_qt::Store *) {}));
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
